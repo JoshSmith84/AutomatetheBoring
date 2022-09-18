@@ -21,7 +21,6 @@ def print_table(a: list) -> None:
             if len(item) > temp_width:
                 temp_width = len(item)
         col_widths.append(temp_width)
-    print(col_widths)
 
     # process strings
     for l in range(len(a[0])):
