@@ -21,5 +21,6 @@ for char in range(len(grid[0])):
     print()
 
 
-# This is so much better than my old solution...
+# This is so much cleaner than my old solution 
+# in which I made a function for the internal loop...
 # Confirmed it works.
