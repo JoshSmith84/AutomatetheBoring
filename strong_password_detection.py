@@ -11,7 +11,7 @@ def detect_pass(a: str) -> None:
     be considered a strong password. For this exercise, a strong
     password is at least eight characters long,
     contains both uppercase and lowercase characters,
-    and has at least one digit. Print out True or False as an answer
+    and has at least one digit. Print out result of test.
 
     :param: string to process and test
     """
