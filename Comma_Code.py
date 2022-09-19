@@ -20,8 +20,8 @@ def comma_code(a: list) -> str:
 
 
 # code to test
-spam = [' apples', 'bananas', 'tofu', 'cats', 42]
-
-spam_list = comma_code(spam)
-print(spam_list)
+# spam = [' apples', 'bananas', 'tofu', 'cats', 42]
+#
+# spam_list = comma_code(spam)
+# print(spam_list)
 # Function tested and works.
