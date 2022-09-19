@@ -10,8 +10,9 @@ def regex_strip(a: str, b: str=' ') -> str:
     :param: Input string to process
     :param: Character to strip. Nothing passed will strip white space
     """
+    strip_lregex = re.compile(r'''^''' + re.escape(b))
+    strip_rregex = re.compile(re.escape(b) + r'''$''')
     while True:
-        strip_lregex = re.compile(r'''^''' + re.escape(b))
         mo1 = re.search(strip_lregex, a)
         if mo1:
             a = re.sub(strip_lregex, '', a)
@@ -19,7 +20,6 @@ def regex_strip(a: str, b: str=' ') -> str:
         else:
             break
     while True:
-        strip_rregex = re.compile(re.escape(b) + r'''$''')
         mo2 = re.search(strip_rregex, a)
         if mo2:
             a = re.sub(strip_rregex, '', a)
