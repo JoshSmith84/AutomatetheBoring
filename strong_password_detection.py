@@ -31,17 +31,14 @@ def detect_pass(a: str) -> None:
 
 
 # Test code
-pass1 = '12345678910'
-pass2 = 'pass'
-pass3 = 'spamspamspamspamspam'
-pass4 = 'PassW0rd1'
-pass5 = 'PassW0rd!!'
+passes = ['12345678910',
+          'pass',
+          'spamspamspamspamspam',
+          'PassW0rd1',
+          'PassW0rd!!']
 
-detect_pass(pass1)
-detect_pass(pass2)
-detect_pass(pass3)
-detect_pass(pass4)
-detect_pass(pass5)
+for pas in passes:
+    detect_pass(pas)
 
 # Tested and function works.
 # I'd like to add a check for special characters but was not having any luck
