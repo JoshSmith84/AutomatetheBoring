@@ -15,27 +15,21 @@ def detect_pass(a: str) -> None:
 
     :param: string to process and test
     """
-    pass_reg = re.compile(r'''(
-            [a-z]+
-            [A-Z]+
-            [0-9]+
-            )''', re.VERBOSE)
-    if len(a) > 7:
-        mo = pass_reg.search(a)
-        if mo:
-            print(f'{a} is a Good Password')
-        else:
-            print(f'{a} lacks complexity')
+    pass_reg = re.compile(r'(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[!-~]{8,}$')
+
+    mo = pass_reg.findall(a)
+    if mo:
+        print(f'{a}: is a Good Password')
     else:
-        print(f'{a} is too short')
+        print(f'{a}: lacks length or complexity')
 
 
 # Test code
 passes = ['12345678910',
           'pass',
           'spamspamspamspamspam',
-          'PassW0rd1',
-          'PassW0rd!!']
+          'PassWord1',
+          '13passWord']
 
 for pas in passes:
     detect_pass(pas)
