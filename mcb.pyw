@@ -8,6 +8,7 @@
 # credit to :Al Sweigart. Automate the Boring Stuff with Python
 # Practical Programming for Total Beginners No Starch Press. for base code
 
+# My contribution is only the
 # Chapter 8 practice project to add delete statements.
 
 import pyperclip
