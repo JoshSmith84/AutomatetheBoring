@@ -10,8 +10,8 @@ def regex_strip(a: str, b: str=' ') -> str:
     :param: Input string to process
     :param: Character to strip. Nothing passed will strip white space
     """
-    strip_lregex = re.compile(r'''^''' + re.escape(b))
-    strip_rregex = re.compile(re.escape(b) + r'''$''')
+    strip_lregex = re.compile(r"^[" + re.escape(b) + "]")
+    strip_rregex = re.compile(r"[" + re.escape(b) + r"]$")
     while True:
         mo1 = re.search(strip_lregex, a)
         if mo1:
@@ -35,17 +35,19 @@ test1 = '   3 even spaces   '
 test2 = '        uneven spaces   '
 test3 = '...dots...'
 test4 = '**&stuff*&&*'
+test5 = 'spmaHello worldspam'
 
 test1 = regex_strip(test1)
 test2 = regex_strip(test2)
 test3 = regex_strip(test3, '.')
 test4 = regex_strip(test4, '*&')
+test5 = regex_strip(test5, 'spma')
 
 print(test1)
 print(test2)
 print(test3)
 print(test4)
+print(test5)
 
-# TODO: I think this satisfies the requirement for chapter 7,
-#  though need to see if I can fix it to pass strings with multiple
-#  characters as the second arg. Something the real .strip() can definitely do.
+# TODO: It works as intended though I'm sure there is a way to shape
+#  the regex in one line and sub it all together as well.
