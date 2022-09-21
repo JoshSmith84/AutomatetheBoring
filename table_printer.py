@@ -36,7 +36,7 @@ tableData = [
     ['apples', 'oranges', 'cherries', 'banana'],
     ['Alice', 'Bob', 'Carol', 'David'],
     ['dogs', 'cats', 'moose', 'goose'],
-    ['jet', 'airbus', 'shuttle', 'duster', 'drone'],
+    ['jet', 'airbus', 'shuttle', 'drone'],
 ]
 
 print_table(tableData)
