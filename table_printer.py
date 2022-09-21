@@ -24,6 +24,7 @@ def print_table(a: list) -> None:
 
     # process strings
     for l in range(len(a[0])):
+        print('| ', end='')
         for n in range(len(a)):
             print(f'{a[n][l].rjust(col_widths[n])}', end=' | ')
         print()
