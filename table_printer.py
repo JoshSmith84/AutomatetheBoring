@@ -41,7 +41,7 @@ tableData = [
 
 print_table(tableData)
 
-# Function tested good, and solution is correct
+# Function tested good, and solution is correct.
 # Also, countless new lists of strings may be added to the parent list,
 # and this will still work. It will only work with lists of 4 items
 # though, and would need to be fixed to allow different sized lists.
