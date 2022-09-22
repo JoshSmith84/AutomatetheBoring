@@ -21,7 +21,7 @@ with shelve.open('mcb') as mcb_shelf:
         mcb_shelf[sys.argv[2]] = pyperclip.paste()
     # Chapter 8 project addition 1
     elif len(sys.argv) == 3 and sys.argv[1].lower() == 'delete':
-        del mcb_shelf[sys.argv[2]]
+        mcb_shelf.pop(sys.argv[2], None)
     elif len(sys.argv) == 2:
         # List keywords and load content.
         if sys.argv[1].lower() == 'list':
