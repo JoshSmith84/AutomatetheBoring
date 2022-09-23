@@ -13,7 +13,7 @@ lines = []
 folder = os.getcwd()
 for file in os.listdir(folder):
     if '.txt' in file:
-        with open(file) as in_file:
+        with open(file, encoding='utf-8') as in_file:
             temp_data = in_file.read()
             temp_line = ''
             for char in temp_data:
