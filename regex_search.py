@@ -10,8 +10,8 @@ import os
 import re
 
 lines = []
-folder = os.getcwd()
-for file in os.listdir(folder):
+
+for file in os.listdir(os.getcwd()):
     if '.txt' in file:
         with open(file, encoding='utf-8') as in_file:
             temp_data = in_file.read()
@@ -23,7 +23,7 @@ for file in os.listdir(folder):
                 else:
                     temp_line = temp_line + char
 
-reg = input('Please enter a text to search: ')
+reg = input('Please enter a text to search for: ')
 reg_search = re.compile(reg)
 for line in lines:
     mo = reg_search.search(line)
