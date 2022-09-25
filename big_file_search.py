@@ -35,7 +35,8 @@ while True:
         continue
 
 # Get size to search for and convert based on input
-number = get_integer(f"Please enter the size to search for in {byte_size}'s: ")
+number = get_integer(f"Please enter the size to search for "
+                     f"in {byte_size}'s: ")
 print('\n' + ('-' * 35) + 'STATUS' + ('-' * 39))
 print(f"Searching {folder} and all sub-folders for any files "
       f"larger than {number}" + f"{byte_size}")
@@ -52,7 +53,8 @@ for foldername, subfolders, filenames in os.walk(folder):
         try:
             filename_size = os.path.getsize(filename_path)
         except OSError:
-            print(f"{filename_path} does not exist or is inaccessible. Skipping")
+            print(f"{filename_path} does not exist or is inaccessible. "
+                  f"Skipping")
             continue
         filename_out_size = str(int(filename_size / convert_num)) \
                             + byte_size + 's'
