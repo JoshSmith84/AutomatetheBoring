@@ -21,11 +21,9 @@ for foldername, subfolders, filenames in os.walk(folder):
         cons_folder = os.path.join(foldername, file_type_upper + 's')
         if file_type in filename:
             print(f"Consolidating {file_type}'s in {foldername}...")
-            if os.path.exists(cons_folder):
-                shutil.copy(os.path.join(foldername, filename), cons_folder)
-            else:
+            if os.path.exists(cons_folder) is False:
                 os.mkdir(cons_folder)
-                shutil.copy(os.path.join(foldername, filename), cons_folder)
+            shutil.copy(os.path.join(foldername, filename), cons_folder)
 
 # Code tested and works.
 # TODO: Add GUI functionality to select root folder then prompt for filetype
