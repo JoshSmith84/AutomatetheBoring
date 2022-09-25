@@ -19,22 +19,20 @@ while True:
                           '3: TB\n'
                           ': ')
                     )
-    if byte_size == '1' or '2' or '3':
-        if byte_size == '1':
-            byte_size = 'MB'
-            convert_num = 1048576
-        elif byte_size == '2':
-            byte_size = 'GB'
-            convert_num = 1073741824
-        elif byte_size == '3':
-            byte_size = 'TB'
-            convert_num = 1099511627776
-        else:
-            continue
+    if byte_size == '1':
+        byte_size = 'MB'
+        convert_num = 1048576
+        break
+    elif byte_size == '2':
+        byte_size = 'GB'
+        convert_num = 1073741824
+        break
+    elif byte_size == '3':
+        byte_size = 'TB'
+        convert_num = 1099511627776
         break
     else:
         continue
-
 
 # Get size to search for and convert based on input
 number = get_integer(f"Please enter the size to search for in {byte_size}'s: ")
