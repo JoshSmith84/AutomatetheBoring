@@ -67,7 +67,7 @@ for prefix in prefixes:
                 break
         if lead0_temp > lead0:
             lead0 = lead0_temp
-        r_just_amount = lead0 + 1
+    r_just_amount = lead0 + 1
 
     # Keep a count so we know what number to give to fill gap.
     file_count = 0
