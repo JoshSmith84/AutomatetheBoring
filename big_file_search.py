@@ -13,7 +13,7 @@ convert_num = 0
 
 # get user input on whether they want to search based on MB, GB, TB.
 while True:
-    byte_size = str(input('Please select byte size to search for...\n'
+    byte_size = str(input('Please select byte size type to search for...\n'
                           '1: MB\n'
                           '2: GB\n'
                           '3: TB\n'
