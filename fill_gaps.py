@@ -68,14 +68,13 @@ for prefix in prefixes:
     r_just_amount = lead0 + 1
 
     # Keep a count so we know what number to give to fill gap.
-    #  I wanted to see if I could wrap this in the mo check above the
-    #  rjust check but I think the best way here is to go ahead and
-    #  rename once the gap is found.
-    #  And to do that, need rjust info first
     file_count = 0
 
     # Iterate over file names looking for bigger than current expected.
     #  once found, rename to expected and continue to exhaust list.
+    #  I wanted to see if I could wrap this in the mo check above the
+    #  rjust check but I need that rjust info in order to rename,
+    #  so had to do this last
     for files in filenames:
         mo = re.search(prefix_regex, files)
         if mo:
