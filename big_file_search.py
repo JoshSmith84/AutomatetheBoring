@@ -53,7 +53,6 @@ for foldername, subfolders, filenames in os.walk(folder):
             continue
         filename_out_size = str(int(filename_size / convert_num)) \
                             + byte_size + 's'
-        byte_size_output = str(filename_out_size) + byte_size + 's'
         if filename_size >= byte_number:
             print(f"{filename} is {filename_out_size} and "
                   f"resides in {foldername}")
