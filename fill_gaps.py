@@ -15,7 +15,7 @@ import sys
 # some prefixes with no duplicates and some prefixes with no gaps.
 # Therefore test folder handles all edge cases
 folder = 'U:\\Joshua\\Dropbox\\Dropbox\\' \
-         'Python\\AutomatetheBoring\\testfiles\\gap_test - bk\\'
+         'Python\\AutomatetheBoring\\testfiles\\gap_test\\'
 
 #  iterate in folder and check for similar prefixes.
 #  Group all found into list
@@ -63,9 +63,11 @@ for prefix in prefixes:
         for char in number:
             if char == '0':
                 lead0_temp += 1
+            else:
+                break
         if lead0_temp > lead0:
             lead0 = lead0_temp
-    r_just_amount = lead0 + 1
+        r_just_amount = lead0 + 1
 
     # Keep a count so we know what number to give to fill gap.
     file_count = 0
