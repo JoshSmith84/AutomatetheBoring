@@ -74,7 +74,7 @@ for prefix in prefixes:
     #  And to do that, need rjust info first
     file_count = 0
 
-    # Iterate over file names looking for bigger that current expected.
+    # Iterate over file names looking for bigger than current expected.
     #  once found, rename to expected and continue to exhaust list.
     for files in filenames:
         mo = re.search(prefix_regex, files)
