@@ -31,3 +31,4 @@ for foldername, subfolders, filenames in os.walk(folder):
 # TODO: Add GUI functionality to select root folder then prompt for filetype
 # TODO: Add functionality to ignore folders that have already been
 #  consolidated when checking again.
+# TODO: add choice to copy or move
