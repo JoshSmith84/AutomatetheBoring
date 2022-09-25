@@ -54,7 +54,7 @@ for foldername, subfolders, filenames in os.walk(folder):
         try:
             filename_size = os.path.getsize(filename_path)
         except OSError:
-            print(f"{filename} does not exist or is inaccessible. Skipping")
+            print(f"{filename_path} does not exist or is inaccessible. Skipping")
             continue
         filename_out_size = str(int(filename_size / convert_num)) \
                             + byte_size + 's'
