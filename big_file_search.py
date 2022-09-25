@@ -38,11 +38,16 @@ while True:
 
 # Get size to search for and convert based on input
 number = get_integer(f"Please enter the size to search for in {byte_size}'s: ")
+print('\n' + ('-' * 35) + 'STATUS' + ('-' * 39))
+print(f"Searching {folder} and all sub-folders for any files "
+      f"larger than {number}" + f"{byte_size}")
 
 # Convert integer input into bytes
 byte_number = number * convert_num
 
 # Walk folder and print out results.
+found_count = 0
+found_list = []
 for foldername, subfolders, filenames in os.walk(folder):
     for filename in filenames:
         filename_path = foldername + '\\' + filename
@@ -54,8 +59,19 @@ for foldername, subfolders, filenames in os.walk(folder):
         filename_out_size = str(int(filename_size / convert_num)) \
                             + byte_size + 's'
         if filename_size >= byte_number:
-            print(f"{filename} is {filename_out_size} and "
+            found_list.append(f"{filename} is {filename_out_size} and "
                   f"resides in {foldername}")
+            found_count += 1
+print('\n' + ('-' * 35) + 'SUMMARY' + ('-' * 38))
+if found_count == 0:
+    print('None found')
+else:
+    print(f'{found_count} occurrence(s) found.')
+    print('\n' + ('-' * 35) + 'RESULTS' + ('-' * 38))
+    for file in found_list:
+        print(file)
+print('-' * 80)
+print('\nDone')
 
 # Code tested and satisfies project + some. For searching a single folder,
 # there is not much utility here as Windows explorer can sort by size already.
