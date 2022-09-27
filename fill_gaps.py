@@ -1,7 +1,7 @@
 #! python3
 # fill_gaps.py - Search a single folder for any files
 # with numbering after a uniform prefix.
-# Then if there are any gaps,
+# Then if there are any gaps in the numbering,
 # rename the next lowest file to next number until there are no more gaps.
 # Answer to Chapter 9 Practice Project of Automate the Boring Stuff
 # Auther: Josh Smith
@@ -74,9 +74,6 @@ for prefix in prefixes:
 
     # Iterate over file names looking for bigger than current expected.
     #  once found, rename to expected and continue to exhaust list.
-    #  I wanted to see if I could wrap this in the mo check above the
-    #  rjust check but I need that rjust info in order to rename,
-    #  so had to do this last
     for files in filenames:
         mo = re.search(prefix_regex, files)
         if mo:
