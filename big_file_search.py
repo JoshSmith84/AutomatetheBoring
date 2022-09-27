@@ -39,7 +39,7 @@ number = get_integer(f"Please enter the size to search for "
                      f"in {byte_size}'s: ")
 print('\n' + ('-' * 35) + 'STATUS' + ('-' * 39))
 print(f"Searching {folder} and all sub-folders for any files "
-      f"larger than {number}" + f"{byte_size}")
+      f"larger than {number}{byte_size}")
 
 # Convert integer input into bytes
 byte_number = number * convert_num
