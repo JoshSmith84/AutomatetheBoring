@@ -46,8 +46,8 @@ while i < len(found_prefixes):
 if len(prefixes) == 0:
     sys.exit("There were no applicable files found. Program terminated...")
 
-# Create regex based on any found common prefix and
-#  look for said prefix in original file list
+# A for loop to handle any prefixes found in the folder.
+# The rest of the program is looped for each valid prefix
 for prefix in prefixes:
     str_numbers = []
     prefix_regex = re.compile((rf"""^({prefix})(\d+)(\.)+(.*?)$"""))
