@@ -83,8 +83,8 @@ for prefix in prefixes:
                       f"{str(file_count).rjust(r_just_amount, '0')}" +
                       f"{mo.group(3)}" + f"{mo.group(4)}")
                 os.rename(folder + files, folder + f"{mo.group(1)}" +
-                      f"{str(file_count).rjust(r_just_amount, '0')}" +
-                      f"{mo.group(3)}" + f"{mo.group(4)}")
+                          f"{str(file_count).rjust(r_just_amount, '0')}" +
+                          f"{mo.group(3)}" + f"{mo.group(4)}")
 
 # Code tested and works!!!
 # I'm not sure if I could have done this more efficiently or with less code yet,
