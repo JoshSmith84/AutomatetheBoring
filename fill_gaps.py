@@ -49,14 +49,13 @@ if len(prefixes) == 0:
 # A for loop to handle any prefixes found in the folder.
 # The rest of the program is looped for each valid prefix
 for prefix in prefixes:
+    # Figure out how many (if any) leading zeros there are
     str_numbers = []
     prefix_regex = re.compile((rf"""^({prefix})(\d+)(\.)+(.*?)$"""))
     for files in filenames:
         mo = re.search(prefix_regex, files)
         if mo:
             str_numbers.append(mo.group(2))
-
-    # Figure out how many (if any) leading zeros there are
     lead0 = 0
     for number in str_numbers:
         lead0_temp = 0
