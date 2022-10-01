@@ -22,8 +22,11 @@ def collatz(col_num: int) -> int:
 
 # Test block
 number = get_integer("Please input a number:")
+reps = 0
 while number != 1:
     number = collatz(number)
     print(number)
+    reps += 1
+print(f"Repetitions needed: {reps}")
 
 # Function Tested and works
