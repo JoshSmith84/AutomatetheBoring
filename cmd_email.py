@@ -30,6 +30,7 @@ logging.disable(logging.CRITICAL)
 with shelve.open('cmdmail') as shelve_file:
     username = shelve_file['mail_user']
     password = shelve_file['mail_pass']
+# TODO: Check for valid to email via regex and print if not valid type.
 to_address = sys.argv[1]
 message = ''
 
