@@ -27,7 +27,8 @@ logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %'
 
 logging.disable(logging.CRITICAL)
 
-# Get sys args and declare variables
+# Handle sys args and declare variables
+# (utilize shelf so no creds in this code)
 with shelve.open('cmdmail') as shelve_file:
     username = shelve_file['mail_user']
     password = shelve_file['mail_pass']
@@ -64,7 +65,6 @@ else:
 
 # webdrive Chrome to open and log into mail.com
 # (created temp account here as it does not require any 2fa or captcha)
-# (utilize shelf so no creds in this code)
 browser = webdriver.Chrome(ChromeDriverManager().install())
 browser.get('https://www.mail.com/')
 try:
