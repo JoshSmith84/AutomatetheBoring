@@ -92,7 +92,7 @@ compose_link = WebDriverWait(browser, 10).until\
 
 compose_link.click()
 
-# Another fight here. Had to back to default page before selecting mail iframe.
+# Another fight here. Had to back out to default before selecting mail iframe.
 browser.switch_to.default_content()
 
 # Now switch to mail frame
