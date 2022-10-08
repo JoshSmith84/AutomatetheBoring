@@ -41,7 +41,6 @@ if len(sys.argv) < 2:
 elif len(sys.argv) < 3:
     sys.exit('Missing required message argument. CLosing Program')
 elif len(sys.argv) > 3:
-    char = ''
     for word in sys.argv[2:]:
         for char in word:
             message += char
