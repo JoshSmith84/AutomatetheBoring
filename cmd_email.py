@@ -11,6 +11,7 @@
 import logging
 import sys
 import shelve
+import re
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
@@ -30,13 +31,14 @@ logging.disable(logging.CRITICAL)
 with shelve.open('cmdmail') as shelve_file:
     username = shelve_file['mail_user']
     password = shelve_file['mail_pass']
-# TODO: Check for valid to email via regex and print if not valid type.
-to_address = sys.argv[1]
+
 message = ''
 
 # Handle short inputs and messages with more than one word
-if len(sys.argv) < 3:
-    print('Message is empty')
+if len(sys.argv) < 2:
+    sys.exit('Missing required argument for email. Closing Program')
+elif len(sys.argv) < 3:
+    sys.exit('Missing required message argument. CLosing Program')
 elif len(sys.argv) > 3:
     char = ''
     for word in sys.argv[2:]:
@@ -45,6 +47,20 @@ elif len(sys.argv) > 3:
         message += ' '
 else:
     message = sys.argv[2]
+
+# Check for valid to email via regex and print if not valid type.
+# email regex.
+email_regex = re.compile(r'''(
+    [a-zA-Z0-9._%+-]+          # username
+    @                          # @ symbol
+    [a-zA-Z0-9.-]+             # domain name
+    (\.[a-zA-Z]{2,4})          # dot-something
+    )''', re.VERBOSE)
+mo = re.search(email_regex, sys.argv[1])
+if mo:
+    to_address = sys.argv[1]
+else:
+    sys.exit('Email argument is not valid')
 
 # webdrive Chrome to open and log into mail.com
 # (utilize shelf so no creds in this code)
