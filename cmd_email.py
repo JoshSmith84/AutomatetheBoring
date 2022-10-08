@@ -63,6 +63,7 @@ else:
     sys.exit('Email argument is not valid')
 
 # webdrive Chrome to open and log into mail.com
+# (created temp account here as it does not require any 2fa or captcha)
 # (utilize shelf so no creds in this code)
 browser = webdriver.Chrome(ChromeDriverManager().install())
 browser.get('https://www.mail.com/')
