@@ -102,7 +102,7 @@ WebDriverWait(browser, 10).until(EC.frame_to_be_available_and_switch_to_it(
 # fill in to box with to variable,
 to_field = WebDriverWait(browser, 10).until(EC.visibility_of_element_located(
     (By.CLASS_NAME, 'select2-input')))
-to_field.send_keys(sys.argv[1], Keys.TAB)
+to_field.send_keys(to_address, Keys.TAB)
 
 # Find Subject
 try:
