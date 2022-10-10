@@ -91,7 +91,6 @@ for i in soup.find_all('a'):
                         file_count += 1
                         res2 = requests.get(image_url)
                         res2.raise_for_status()
-                        soup2 = bs4.BeautifulSoup(res2.text, 'lxml')
                         image_filename = f'{date}-' \
                                          f'{str(file_count).rjust(3, "0")}.jpeg'
                         # Save the image to folder
