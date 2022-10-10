@@ -60,12 +60,7 @@ res.raise_for_status()
 # Retrieve top search result links.
 soup = bs4.BeautifulSoup(res.text, features='lxml')
 
-# Fighting this for a while. I finally gave up and
-# tried printing out BS to an external file. I found my issue,
-# the parsed html does not extend much lower than the start of the body.
-# Making it impossible for my app to find and download the actual image.
-# After researching it seems this has to be done with
-# a mix of selenium (to parse the dynamic parts) and BS4
+# Iterate through found galleries and download images
 for i in soup.find_all('a'):
     for attr in i.attrs:
         gallery_url = f'https://imgur.com{i[attr]}'
@@ -73,6 +68,12 @@ for i in soup.find_all('a'):
             if 'gallery' in gallery_url:
                 if '@@event@@' not in gallery_url:
                     browser.get(gallery_url)
+# Fighting this for a while. I finally gave up and
+# tried printing out BS to an external file. I found my issue,
+# the parsed html does not extend much lower than the start of the body.
+# Making it impossible for my app to find and download the actual image.
+# After researching it seems this has to be done with
+# a mix of selenium (to parse the dynamic parts) and BS4
                     try:
                         image_url = browser.find_element(
                             By.XPATH,
