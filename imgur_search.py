@@ -34,7 +34,7 @@ logging.disable(logging.CRITICAL)
 search = ''
 folder = 'U:\\Joshua\\Dropbox\\Dropbox\\Pictures\\Automated Downloads'
 
-# Option to make browser "headless"
+# Option to make browser "headless" (hidden)
 option = webdriver.ChromeOptions()
 option.add_argument('headless')
 browser = webdriver.Chrome(ChromeDriverManager().install(), options=option)
