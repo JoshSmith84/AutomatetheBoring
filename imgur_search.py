@@ -48,6 +48,7 @@ elif len(sys.argv) > 2:
         for char in word:
             search += char
         search += '+'
+    search = search.strip('+')
 else:
     search = sys.argv[1]
 
