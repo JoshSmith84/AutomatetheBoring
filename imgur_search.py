@@ -4,7 +4,6 @@
 # TODO Add support for downloading entire gallery
 # TODO Add support for gifs(right now downloads some but extension would
 #  need to be changed in order for animation to work.
-# TODO Possible at all to do this hidden with script heavy sites?
 
 # example: py.exe imgur_search.py Search term
 
@@ -21,6 +20,7 @@ from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.chrome.options import Options
 
 
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %'
@@ -33,7 +33,12 @@ logging.disable(logging.CRITICAL)
 # Initialize any variables
 search = ''
 folder = 'U:\\Joshua\\Dropbox\\Dropbox\\Pictures\\Automated Downloads'
-browser = webdriver.Chrome(ChromeDriverManager().install())
+
+# Option to make browser "headless"
+option = webdriver.ChromeOptions()
+option.add_argument('headless')
+browser = webdriver.Chrome(ChromeDriverManager().install(), options=option)
+
 image_elem = ''
 file_count = 0
 date_list = str(datetime.datetime.today()).split(' ')
@@ -98,3 +103,5 @@ for i in soup.find_all('a'):
                                   'wb') as image_file:
                             for chunk in res2.iter_content(100000):
                                 image_file.write(chunk)
+
+# confirmed code works.
