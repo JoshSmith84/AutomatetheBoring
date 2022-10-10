@@ -94,7 +94,7 @@ for i in soup.find_all('a'):
                         soup2 = bs4.BeautifulSoup(res2.text, 'lxml')
                         image_filename = f'{date}-' \
                                          f'{str(file_count).rjust(3, "0")}.jpeg'
-                        #Save the image to folder
+                        # Save the image to folder
                         with open(os.path.join(folder, image_filename),
                                   'wb') as image_file:
                             for chunk in res2.iter_content(100000):
