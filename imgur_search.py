@@ -10,7 +10,6 @@
 # Author: Josh Smith
 
 # imports
-import logging
 import sys
 import bs4
 import os
@@ -20,15 +19,7 @@ from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
-from selenium.webdriver.chrome.options import Options
 
-
-logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %'
-                                                '(levelname)s - %'
-                                                '(message)s',
-                    filename='program_logging.txt')
-
-logging.disable(logging.CRITICAL)
 
 # Initialize any variables
 search = ''
