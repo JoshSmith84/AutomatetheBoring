@@ -44,8 +44,6 @@ def josh_strategy():
         wait()
     game.send_keys(Keys.UP)
     wait()
-    game.send_keys(Keys.DOWN)
-    wait()
     game.send_keys(Keys.RIGHT)
     wait()
 
