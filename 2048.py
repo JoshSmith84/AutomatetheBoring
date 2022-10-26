@@ -37,11 +37,17 @@ def book_strategy():
 
 def josh_strategy():
     global game
-    game.send_keys(Keys.DOWN)
+    for i in range(12):
+        game.send_keys(Keys.DOWN)
+        wait()
+        game.send_keys(Keys.RIGHT)
+        wait()
+        game.send_keys(Keys.RIGHT)
+        wait()
+    game.send_keys(Keys.UP)
     wait()
     game.send_keys(Keys.RIGHT)
     wait()
-
 
 
 def update_sheet(sheet_name):
@@ -71,7 +77,6 @@ def run_game(strategy, sample: int, sheet_name):
         bad_char = ['+', '\n']
         old_score = 1
         left_try = 0
-        up_try = 0
         while True:
             #added this only for Josh_strategy since it occasionally
             # got stuck and resulted in incorrect game over (I know, sloppy...)
@@ -91,15 +96,8 @@ def run_game(strategy, sample: int, sheet_name):
                 else:
                     if left_try == 0:
                         game.send_keys(Keys.LEFT)
-                        wait()
                         left_try += 1
-                        continue
-                    elif up_try == 0:
-                        game.send_keys(Keys.UP)
-                        wait()
-                        game.send_keys(Keys.RIGHT)
-                        wait()
-                        up_try += 1
+                        old_score = 1
                         continue
                     else:
                         update_sheet(sheet_name)
