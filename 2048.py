@@ -13,6 +13,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import NoSuchElementException
 import time
+import openpyxl
+from get_integer import get_integer
 
 
 # Due to some odd behavior, had to add a short wait in between keystrokes.
@@ -20,46 +22,74 @@ def wait():
     time.sleep(0.05)
 
 
-browser = webdriver.Chrome(ChromeDriverManager().install())
-browser.get('https://play2048.co/')
+def book_strategy():
+    global game
+    game.send_keys(Keys.UP)
+    wait()
+    game.send_keys(Keys.RIGHT)
+    wait()
+    game.send_keys(Keys.DOWN)
+    wait()
+    game.send_keys(Keys.LEFT)
+    wait()
 
-try:
-    game = browser.find_element(By.TAG_NAME, 'html')
-except NoSuchElementException:
-    sys.exit("Unable to find the Game. Exiting program.")
 
-old_score = 1
-bad_char = ['+', '\n']
-
-while True:
-    new_score = ''
-    try:
-        score = browser.find_element(
-            By.CLASS_NAME, 'score-container').text
-        game.send_keys(Keys.UP)
+def josh_strategy():
+    global game
+    for i in range(5):
+        game.send_keys(Keys.DOWN)
         wait()
         game.send_keys(Keys.RIGHT)
         wait()
-        game.send_keys(Keys.DOWN)
-        wait()
-        game.send_keys(Keys.LEFT)
-        wait()
-        for char in score:
-            if char in bad_char:
-                break
-            else:
-                new_score += char
-        if int(new_score) != old_score:
-            old_score = int(new_score)
-            continue
-        else:
-            break
+    game.send_keys(Keys.UP)
+    wait()
+    game.send_keys(Keys.RIGHT)
+
+
+def run_game(strategy):
+    global game
+    global old_score
+    browser = webdriver.Chrome(ChromeDriverManager().install())
+    browser.get('https://play2048.co/')
+
+    try:
+        game = browser.find_element(By.TAG_NAME, 'html')
     except NoSuchElementException:
-        sys.exit("Trouble reading score container. Exiting program")
+        sys.exit("Unable to find the Game. Exiting program.")
+
+    bad_char = ['+', '\n']
+    old_score = 1
+    while True:
+        new_score = ''
+        try:
+            score = browser.find_element(
+                By.CLASS_NAME, 'score-container').text
+            strategy()
+            for char in score:
+                if char in bad_char:
+                    break
+                else:
+                    new_score += char
+            if int(new_score) != old_score:
+                old_score = int(new_score)
+                continue
+            else:
+                break
+        except NoSuchElementException:
+            sys.exit("Trouble reading score container. Exiting program")
+
+    browser.quit()
+    return old_score
 
 
-browser.quit()
-print(f'Game Over. Final score: {old_score}')
+tries = get_integer('Input amount of tries:')
+for i in range(tries):
+    run_game(josh_strategy)
+    print(f'Game Over. Final score: {old_score}')
+    run_game(book_strategy)
+    print(f'Game Over. Final score: {old_score}')
+
+
 
 # Code tested and works. Figuring out how to play the game was easy.
 # Getting a game over status and score was not as simple.
