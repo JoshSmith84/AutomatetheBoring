@@ -82,6 +82,7 @@ def run_game(strategy):
     return old_score
 
 
+old_score = 1
 tries = get_integer('Input amount of tries:')
 for i in range(tries):
     run_game(josh_strategy)
