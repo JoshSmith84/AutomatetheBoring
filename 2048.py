@@ -15,7 +15,7 @@ from selenium.common.exceptions import NoSuchElementException
 import time
 
 
-# Due to some odd behavior, had to add a short wait in between keystrokes.
+# Due to some odd behavior, had to add a short wait in between keystrokes
 def wait():
     time.sleep(0.05)
 
