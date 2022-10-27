@@ -76,8 +76,6 @@ def run_game(strategy, sample: int, sheet_name):
         old_score = 1
         left_try = 0
         while True:
-            #added this only for Josh_strategy since it occasionally
-            # got stuck and resulted in incorrect game over (I know, sloppy...)
             new_score = ''
             try:
                 score = browser.find_element(
