@@ -1,3 +1,4 @@
+#! python3
 # multiplicationTable.py takes a number N from the command line
 # and creates an N × N multiplication table in an Excel spreadsheet.
 # usage: py multiplicationTable.py 6
@@ -5,18 +6,11 @@
 # Author: Josh Smith
 
 from openpyxl import Workbook, load_workbook
-from openpyxl.utils import get_column_letter
-from openpyxl.styles import Font, NamedStyle
+from openpyxl.styles import Font
 import sys
-import os
-
-# get valid integer passed via cmd. reject incorrect with error
-
-# With valid int, create spreadsheet with colA and
 
 
-
-class MultTable():
+class MultTable:
 
     def __init__(self, number=1):
         wb = Workbook()
@@ -36,12 +30,26 @@ class MultTable():
             for n in range(1, number + 1):
                 sheet.cell(row=i + 1, column=n + 1).value = i * n
             sheet.cell(row=1, column=1).value = None
+        # save the sheet then finished.
         wb.save(wb_file)
 
 
-# then have products of each row/col in the grid
+# Run Program when called
+if __name__ == "__main__":
+    # get valid integer passed via cmd. reject incorrect with error
+    if len(sys.argv) < 2:
+        sys.exit('Missing required argument. '
+                 'Please re-run with integer specified')
+    number = (sys.argv[1])
+    try:
+        number = int(number)
+    except ValueError:
+        sys.exit(
+            'I can only generate a multiplication table with a valid integer.'
+            '\nPlease try again.'
+        )
+    MultTable(number)
+    print(f'Done creating Multiplication table for {str(number)}..')
 
-# save the sheet then finished.
 
-# In progress test code
-test = MultTable(4)
+# Code tested and works in cmd.
