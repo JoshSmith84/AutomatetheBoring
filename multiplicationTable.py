@@ -11,6 +11,8 @@ import sys
 
 
 class MultTable:
+    """Pass any integer and create a spreadsheet
+    with a complete multiplication table."""
 
     def __init__(self, number=1):
         wb = Workbook()
@@ -34,22 +36,21 @@ class MultTable:
         wb.save(wb_file)
 
 
-# Run Program when called
 if __name__ == "__main__":
     # get valid integer passed via cmd. reject incorrect with error
     if len(sys.argv) < 2:
         sys.exit('Missing required argument. '
                  'Please re-run with integer specified')
-    number = (sys.argv[1])
+    num = (sys.argv[1])
     try:
-        number = int(number)
+        num = int(num)
     except ValueError:
         sys.exit(
             'I can only generate a multiplication table with a valid integer.'
             '\nPlease try again.'
         )
-    MultTable(number)
-    print(f'Done creating Multiplication table for {str(number)}..')
+    MultTable(num)
+    print(f'Done creating Multiplication table for {str(num)}..')
 
 
 # Code tested and works in cmd.
