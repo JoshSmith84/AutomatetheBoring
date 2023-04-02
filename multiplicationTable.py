@@ -50,7 +50,7 @@ if __name__ == "__main__":
             '\nPlease try again.'
         )
     MultTable(num)
-    print(f'Done creating Multiplication table for {str(num)}..')
+    print(f'Done creating Multiplication table up to {str(num)}..')
 
 
 # Code tested and works in cmd.
